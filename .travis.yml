@@ -1,7 +1,11 @@
-language: go
-go: 
- - 1.6
- - 1.7
+sudo: required
+
+# trusty required for docker
+# https://github.com/travis-ci/travis-ci/issues/5448
+dist: trusty
+
+services:
+  - docker
 
 script:
- - go test -v ./...
+  - make test
